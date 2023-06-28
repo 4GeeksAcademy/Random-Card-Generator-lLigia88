@@ -2,28 +2,46 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
     <link
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans"
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
     />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <link rel="stylesheet" href="cartas-style.css" type="text/css" />
+    <title>Card Generator</title>
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+    <div id="card">
+      <div id="top-symbol"></div>
+      <!-- Top symbol -->
+      <div id="number">A</div>
+      <!-- Card number -->
+      <div id="bottom-symbol"></div>
+      <!-- Bottom symbol -->
     </div>
+
+    <script type="text/javascript">
+      // Function to generate a random number between 1 and 10
+      function generateRandomNumber() {
+        return Math.floor(Math.random() * 10) + 1;
+      }
+
+      // Function to generate a random card
+      function generateRandomCard() {
+        var numbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+        var symbols = ["&hearts;", "&spades;", "&diams;", "&clubs;"];
+
+        var number = numbers[generateRandomNumber() - 1];
+        var symbol = symbols[generateRandomNumber() - 1];
+
+        document.getElementById("number").innerHTML = number;
+        document.getElementById("top-symbol").innerHTML = symbol;
+        document.getElementById("bottom-symbol").innerHTML = symbol;
+      }
+
+      // Generate a random card on page load
+      window.onload = function() {
+        generateRandomCard();
+      };
+    </script>
   </body>
 </html>
